@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 
+import { session } from "@/lib/neo4j";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -13,10 +14,7 @@ export default function Pedido() {
       const data = await res.json();
       setPedido(data);
     };
-
-    pedidos();
   }, [params.id]);
-  console.log(pedido);
 
   console.log(params.id);
   return <div>page</div>;
