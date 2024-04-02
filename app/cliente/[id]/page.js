@@ -14,8 +14,21 @@ export default function Pedido() {
       const data = await res.json();
       setPedido(data);
     };
+    pedidos();
   }, [params.id]);
 
-  console.log(params.id);
-  return <div>page</div>;
+  console.log(Number(pedido[0].pedido[0].id));
+  async function obtenerPedido() {
+    const response = await fetch(`/api/neo4j`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(pedido[0].pedido),
+    });
+    const data = await response.json();
+    console.log(data);
+  }
+
+  return <button onClick={obtenerPedido}>Probar </button>;
 }
