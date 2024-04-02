@@ -94,7 +94,7 @@ async function encontrarRutasMasCortas(empleadoNombre, areas) {
 
 export async function GET(req) {
   const empleadoNombre = "empleado1";
-  const areas = ["area_d", "area_b"];
+  const areas = ["area_a", "area_b", "area_c"];
   const areaC = "area_c";
 
   /*   try {
