@@ -1,4 +1,5 @@
 import { Pedidos } from "@/connection/pedido";
+import { correo } from "@/connection/resend";
 import { NextResponse } from "next/server";
 import twilio from "twilio";
 
@@ -28,6 +29,8 @@ export async function POST(req, res) {
         .then((message) => console.log(message.sid))
         .catch((error) => console.error("Error al enviar mensaje:", error));
     });
+
+    await correo();
   } catch (error) {
     console.error("Error al actualizar el estado:", error);
     return new NextResponse(
