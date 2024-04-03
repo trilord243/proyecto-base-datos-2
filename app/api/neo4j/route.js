@@ -35,14 +35,12 @@ export async function POST(req) {
   try {
     const productos = await req.json();
 
-    // Itera sobre los productos y encuentra sus áreas correspondientes
     const productosConArea = await Promise.all(
       productos.map(async (producto) => {
-        // Convierte el id a número
         const productoIdNumerico = Number(producto.id);
-        // Encuentra el área del producto
+
         const area = await findAreaByProductTypeId(productoIdNumerico);
-        // Retorna un nuevo objeto con todos los datos del producto más el área
+
         return { ...producto, area };
       })
     );
