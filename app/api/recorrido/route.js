@@ -92,37 +92,13 @@ async function encontrarRutasMasCortas(empleadoNombre, areas) {
   return rutas;
 }
 
-export async function GET(req) {
+export async function POST(req) {
+  const data = await req.json();
+
   const empleadoNombre = "empleado1";
-  const areas = ["area_a", "area_b", "area_c"];
-  const areaC = "area_c";
-
-  /*   try {
-    const distancias = await obtenerDistanciasPorAreas(empleadoNombre, areas);
-   
-
-    return NextResponse.json(distancias);
-  } catch (error) {
-    return new NextResponse(JSON.stringify({ error: error.message }), {
-      status: 500,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-  }
-   */
-
-  /*   try {
-    const distancias = await obtenerDistanciasEntreAreas(areaC, areas);
-    console.log(distancias);
-    return NextResponse.json({ holda: "hola" });
-  } catch (e) {
-    console.log(e);
-    return NextResponse.json({ error: e.message });
-  } */
 
   try {
-    const rutas = await encontrarRutasMasCortas(empleadoNombre, areas);
+    const rutas = await encontrarRutasMasCortas(empleadoNombre, data);
     console.log(rutas);
     return NextResponse.json(rutas);
   } catch (e) {
