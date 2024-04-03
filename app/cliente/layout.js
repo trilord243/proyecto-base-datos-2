@@ -1,9 +1,5 @@
 import Link from "next/link";
-const navigation = [
-  { name: "Administrador ", href: "/administrador" },
-
-  { name: "Pedidos", href: "/cliente" },
-];
+const navigation = [{ name: "Administrador ", href: "/administrador" }];
 
 export default function Layout({ children }) {
   return (
