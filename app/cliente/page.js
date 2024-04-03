@@ -27,14 +27,14 @@ export default function Client() {
   return (
     <div
       role="list"
-      className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-auto px-6 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-10"
+      className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3  px-6 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-10 mt-20 ml-36"
     >
       {loading && <Loader mensaje="Cargando pedidos" />}
       {pedidosEnProceso.map((pedido) => (
         <Link
           href={`/cliente/${pedido._id}`}
           key={pedido._id}
-          className="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow"
+          className="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow-2xl border border-blue-400 sm:col-span-1 lg:col-span-1 xl:col-span-1 hover:bg-blue-300 focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-75"
         >
           <div className="flex w-full items-center justify-between space-x-6 p-6">
             <div className="flex-1 truncate">

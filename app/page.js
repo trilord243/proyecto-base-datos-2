@@ -1,11 +1,8 @@
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
-
 const navigation = [
-  { name: "Mas productos ", href: "#" },
+  { name: "Administrador ", href: "admin" },
 
-  { name: "Soluciones", href: "#" },
-  { name: "Quienes somos", href: "#" },
+  { name: "Pedidos", href: "cliente" },
 ];
 
 export default function Home() {
@@ -18,7 +15,7 @@ export default function Home() {
               className="flex items-center justify-between lg:justify-start"
               aria-label="Global"
             >
-              <a href="#" className="-m-1.5 p-1.5">
+              <Link href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
                 <picture>
                   <img
@@ -27,30 +24,28 @@ export default function Home() {
                     src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                   />
                 </picture>
-              </a>
+              </Link>
               <button
                 type="button"
                 className="-m-2.5 rounded-md p-2.5 text-gray-700 lg:hidden"
               >
                 <span className="sr-only">Open main menu</span>
-                <Bars3Icon className="h-6 w-6" aria-hidden="true" />
               </button>
               <div className="hidden lg:ml-12 lg:flex lg:gap-x-14">
                 {navigation.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
                     href={item.href}
                     className="text-sm font-semibold leading-6 text-gray-900"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </nav>
           </div>
         </div>
       </header>
-
       <div className="relative">
         <div className="mx-auto max-w-7xl">
           <div className="relative z-10 pt-14 lg:w-full lg:max-w-2xl">

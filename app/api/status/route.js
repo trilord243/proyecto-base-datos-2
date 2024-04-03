@@ -7,7 +7,7 @@ const authToken = "8797cfef4b2a281ea43a7c1d3a848560";
 
 const client = twilio(accountSid, authToken);
 
-const numeros = ["+584242134753", "+584123951852"];
+const numeros = ["+584242134753"];
 
 export async function POST(req, res) {
   const status = await req.json();
