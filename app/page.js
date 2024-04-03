@@ -1,5 +1,5 @@
 import Link from "next/link";
-const navigation = [{ name: "Administrador ", href: "admin" }];
+const navigation = [{ name: "Cliente ", href: "/cliente" }];
 
 export default function Home() {
   return (
