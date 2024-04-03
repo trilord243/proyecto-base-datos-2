@@ -3,8 +3,7 @@
 
 import ListaProducto from "@/components/ListaProductos";
 import Loader from "@/components/Loader";
-import Recorrido from "@/components/Recorrido";
-import { set } from "mongoose";
+
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
