@@ -17,4 +17,16 @@ const PedidoSchema = new mongoose.Schema({
 const Pedidos =
   mongoose.models.Pedido || mongoose.model("Pedido", PedidoSchema);
 
-export { Pedidos };
+const MasterSchema = new mongoose.Schema(
+  {
+    id: String,
+    name: String,
+    longname: String,
+    cantidad: Number,
+  },
+  { collection: "master" }
+);
+
+const Master = mongoose.models.Master || mongoose.model("Master", MasterSchema);
+
+export { Pedidos, Master };

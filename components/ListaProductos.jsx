@@ -3,7 +3,7 @@ import { useState } from "react";
 import Recorrido from "./Recorrido";
 import Loader from "./Loader";
 
-export default function ListaProducto({ products = [], areas }) {
+export default function ListaProducto({ products = [], areas, productId }) {
     const [recorrido, setRecorrido] = useState([]);
     const [mostrarRecorrido, setMostrarRecorrido] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -32,7 +32,7 @@ export default function ListaProducto({ products = [], areas }) {
         }
     }
 
-    function handleSiguiente() {
+    async function handleSiguiente() {
         const currentIndex = recorrido.findIndex(r => r.status === 'current');
         if (currentIndex < recorrido.length - 1) {
 
@@ -45,7 +45,39 @@ export default function ListaProducto({ products = [], areas }) {
 
             console.log('Recorrido completado');
             setMostrarRecorrido(false);
-            console.log(products)
+
+            const response = await fetch('/api/completado', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(products),
+            });
+
+            const status = await fetch('/api/status', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(productId),
+            });
+
+
+            const neo = await fetch('/api/neocantidad', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(products),
+            });
+
+
+            if (response.ok && status.ok) {
+                console.log('Productos enviados con éxito');
+            } else {
+                console.error('Error al enviar los productos:', response.statusText);
+            }
+
         }
     }
 

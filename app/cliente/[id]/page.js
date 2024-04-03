@@ -55,7 +55,11 @@ export default function Pedido() {
   return (
     <div className="h-screen w-auto flex gap-9 flex-col justify-center items-center">
       {loading && <Loader mensaje="Cargando pedido" />}
-      <ListaProducto products={pedidoArea} areas={areas} />
+      <ListaProducto
+        productId={params.id}
+        products={pedidoArea}
+        areas={areas}
+      />
     </div>
   );
 }
